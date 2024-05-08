@@ -11,8 +11,8 @@ import java.io.IOException;
 class RandomNumber {
     public static void main (String[] args) {
 
-String filePath = "C:\\Users\\danii\\OneDrive\\Рабочий стол\\Программы\\RandomNumber\\RandomNumberBase.txt";
-String filePathName = "C:\\Users\\danii\\OneDrive\\Рабочий стол\\Программы\\RandomNumber\\RandomNumberBaseName.txt";
+String filePath = "RandomNumberBase.txt";
+String filePathName = "RandomNumberBaseName.txt";
 
 File file = new File(filePath);
     if (file.length() == 0) {
@@ -75,7 +75,7 @@ do {
                 popitki++;
                 konets++;
 
-                filePath = "C:\\Users\\danii\\OneDrive\\Рабочий стол\\Программы\\RandomNumber\\RandomNumberBase.txt";
+                filePath = "RandomNumberBase.txt";
                 try (Scanner scanner2 = new Scanner(new File(filePath))) {
                     while (scanner2.hasNextLine()) {
                         line = scanner2.nextLine();
@@ -84,7 +84,7 @@ do {
                     System.err.println(e.getMessage());
                         }
 
-                filePathName = "C:\\Users\\danii\\OneDrive\\Рабочий стол\\Программы\\RandomNumber\\RandomNumberBaseName.txt";
+                filePathName = "RandomNumberBaseName.txt";
                 try (Scanner scanner5 = new Scanner(new File(filePathName))) {
                     while (scanner5.hasNextLine()) {
                         lineName = scanner5.nextLine();
@@ -132,21 +132,21 @@ do {
         System.out.println("Сыграем ещё раз (Yes или No)? ");
         userAnswer = scanner3.nextLine();
 
-        if (userAnswer.equals("No") || userAnswer.equals("NO") || userAnswer.equals("no")) {
+        if (userAnswer.equalsIgnoreCase("no")) {
             scanner.close();
             scanner3.close();
             scanner4.close();
         }
-        else if (userAnswer.equals("Yes") || userAnswer.equals("YES") || userAnswer.equals("yes")) {
+        else if (userAnswer.equalsIgnoreCase("yes")) {
             System.out.println();
         }
-        if (!userAnswer.equals("No") && !userAnswer.equals("NO") && !userAnswer.equals("no") && !userAnswer.equals("Yes") && !userAnswer.equals("YES") && !userAnswer.equals("yes")) {
+        if (!userAnswer.equalsIgnoreCase("no") && !userAnswer.equalsIgnoreCase("yes")) {
             System.out.println("Я вас не понял!");
         }
-    } while (!userAnswer.equals("No") && !userAnswer.equals("NO") && !userAnswer.equals("no") && !userAnswer.equals("Yes") && !userAnswer.equals("YES") && !userAnswer.equals("yes"));
+    } while (!userAnswer.equalsIgnoreCase("no") && !userAnswer.equalsIgnoreCase("yes"));
 
 
-} while (userAnswer.equals("Yes") || userAnswer.equals("YES") || userAnswer.equals("yes"));
+} while (userAnswer.equalsIgnoreCase("yes"));
 
     }
 }
